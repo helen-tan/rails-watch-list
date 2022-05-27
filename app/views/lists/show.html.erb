@@ -8,11 +8,11 @@
 <!-- Display the bookmark -->
 <p>
   <strong>Your bookmarks:</strong>
-  <% @list.bookmarks.each do |bookmark| %>
+  <% @bookmarks.each do |bookmark| %>
     <div class="list-group-item">
       <%= bookmark.comment %>
       <%= link_to "Delete",
-            list_path(bookmark),
+            bookmark_path(bookmark),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
     </div>

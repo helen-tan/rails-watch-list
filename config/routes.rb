@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:new, :create]
   end
 
+  get "bookmarks/:id", to: "bookmarks#show", as: :bookmark
+
   # User can delete a bookmark from a list
   # DELETE bookmarks/:id
   delete "bookmarks/:id", to: "bookmarks#destroy"
