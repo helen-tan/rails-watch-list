@@ -5,16 +5,34 @@
   <%= @list.name %>
 </p>
 
-<!-- Display the bookmark -->
+<!-- Display the movies -->
 <p>
-  <strong>Your bookmarks:</strong>
-  <% @bookmarks.each do |bookmark| %>
+  <strong>Movies:</strong>
+  <% @movies.each do |movie| %>
     <div class="list-group-item">
-      <%= bookmark.comment %>
-      <%= link_to "Delete",
+      <strong>Title:</strong>
+      <p><%= movie.title %></p>
+
+      <strong>Overview:</strong>
+      <p><%= movie.overview %></p>
+
+      <% store_movie_id = movie.id %>
+
+      <!-- Display the 'comment' -->
+      <strong>Your bookmark:</strong>
+
+      <% @bookmarks.each do |bookmark| %>
+        <% if bookmark.movie_id == store_movie_id %>
+          <p><%= bookmark.comment %></p>
+        <% end %>
+
+        <%= link_to "Delete",
             bookmark_path(bookmark),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+
+      <% end %>
+
     </div>
   <% end %>
 </p>
