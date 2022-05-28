@@ -1,7 +1,17 @@
-<h2>Add a new Bookmark</h2>
+<div class="container py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-6">
+      <!-- Form-->
+      <div class="bg-white p-3 rounded shadow">
+        <!-- Add a new bookmark -->
+        <h2>Add a movie to your <%= @list.name %> list</h2>
 
-<%= simple_form_for([@list, @bookmark]) do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+        <%= simple_form_for([@list, @bookmark]) do |f| %>
+          <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
+          <%= f.association :movie, prompt: 'Select a movie' %>
+          <%= f.submit "Submit", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
