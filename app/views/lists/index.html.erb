@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("cover.jpg") %>)">
   <div class="container">
-    <h1>Save <strong>any kind</strong> of <strong>movies</strong>!</h1>
+    <h1>Save <strong>any kind</strong> of <strong>movies</strong></h1>
     <p>Categorize your favourite movies by their genres</p>
     <%= link_to 'New movie List', new_list_path, class: "btn btn-flat" %>
   </div>
@@ -17,7 +17,7 @@
 
 <!-- Movie list cards -->
 <div class="container">
-  <div class="row">
+  <div class="row pb-5">
         <% @lists.each do |list| %>
           <div class="col-12 col-sm-6 col-md-4">
             <%= link_to list_path(list), class: "text-decoration-none" do %>
@@ -31,6 +31,7 @@
   </div>
 </div>
 
+<!--
 <table>
   <thead>
     <tr>
@@ -49,3 +50,4 @@
   </tbody>
 </table>
 <%= link_to 'New List', new_list_path, class: "btn btn-primary" %>
+-->
