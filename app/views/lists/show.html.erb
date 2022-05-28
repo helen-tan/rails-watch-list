@@ -8,14 +8,50 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+<div class="container mb-5">
+  <!-- Add movies button -->
+  <div class="d-flex justify-content-end mb-3">
+    <%= link_to 'Add Bookmark', new_list_bookmark_path(@list), class: "btn btn-flat" %>
+  </div>
 
-<td><%= link_to 'Add Bookmark', new_list_bookmark_path(@list), class: "btn btn-primary" %></td>
+  <div class="row my-2">
+    <!-- Movie cards -->
+    <% @movies.each do |movie| %>
+      <!-- Find the bookmark that contains the list_id-of this list & movie_id of movie belonging to this list_id -->
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
 
+      <div class="col-12 col-sm-6 col-md-6 mb-4">
+        <div class="card bg-white rounded shadow h-100 p-4">
+
+          <div class="movie-info">
+            <!-- Title -->
+            <p><strong><%= movie.title %></strong></p>
+            <!-- Movie overview -->
+            <small class="text-muted"><%= movie.overview %></small>
+          </div>
+
+          <div class="bookmark-info d-flex justify-content-between pt-4">
+            <!-- Bookmark comment -->
+            <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+            <!-- Delete button -->
+            <small>
+              <%= link_to "Delete",
+              bookmark_path(bookmark),
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "text-danger text-decoration-none" %>
+            </small>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Rough working -->
 <!-- Display the movies -->
+<!--
 <p>
   <strong>Movies:</strong>
   <% @movies.each do |movie| %>
@@ -27,8 +63,9 @@
       <p><%= movie.overview %></p>
 
       <% store_movie_id = movie.id %>
-
+-->
       <!-- Display the 'comment' -->
+      <!--
       <strong>Your bookmark:</strong>
 
       <% @bookmarks.each do |bookmark| %>
@@ -48,3 +85,4 @@
 </p>
 
  <%= link_to 'Back', lists_path, class: "btn btn-primary" %>
+ -->
