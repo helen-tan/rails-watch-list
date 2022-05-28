@@ -1,6 +1,15 @@
-<h2>Add a new List</h2>
+<div class="container py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-6">
+    <!-- Form -->
+      <div class="bg-light p-3 rounded shadow">
+        <h2>Create a new list</h2>
 
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+        <%= simple_form_for(@list) do |f| %>
+          <%= f.input :name, placeholder: "Horror" %>
+          <%= f.submit "Submit", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
