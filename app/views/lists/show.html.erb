@@ -26,6 +26,8 @@
           <div class="movie-info">
             <!-- Title -->
             <p><strong><%= movie.title %></strong></p>
+            <!-- Image -->
+            <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
             <!-- Movie overview -->
             <small class="text-muted"><%= movie.overview %></small>
           </div>
