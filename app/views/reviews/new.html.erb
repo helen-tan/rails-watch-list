@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-6">
+    <!-- Form -->
+      <div class="bg-light p-3 rounded shadow">
+        <h2>Create a new review</h2>
+
+        <%= simple_form_for([@list, @review]) do |f| %>
+          <%= f.input :comment, placeholder: "What do you think about this movie list?" %>
+          <%= f.input :rating %>
+          <%= f.submit "Submit", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
