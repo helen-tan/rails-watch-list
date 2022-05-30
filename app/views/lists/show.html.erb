@@ -1,9 +1,16 @@
 <!-- Banner -->
 <div class="position-relative">
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
-    <h1><%= @list.name %></h1>
-  </div>
-    <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
+  <% if @list.photo.attached? %>
+    <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill %>')">
+      <h1><%= @list.name %></h1>
+      <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
+    </div>
+  <% else %>
+    <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path("list_background.jpg") %>)">
+      <h1><%= @list.name %></h1>
+      <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
+    </div>
+  <% end %>
 </div>
 
 <p id="notice"><%= notice %></p>
